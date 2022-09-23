@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class OTP {
     public static void main(String[] args) {
-        int OtpLength = 6;
+        int OtpLength = 5;
         String otp = generateOTP(OtpLength);
         System.out.println("Generated OTP :" + otp);
     }
