@@ -1,17 +1,26 @@
+import java.util.Collections;
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class PasswordGenerator {
     public static String password(int passwordLength, boolean haveNumber, boolean haveCharacters,
             boolean haveSpecialChar) {
         String res = "";
+        ArrayList<String> al = new ArrayList<>();
         for (int i = 0; i < passwordLength; i++) {
-            String arr[] = { haveNumber ? getNumber() : "", haveCharacters ? getCharacter() : "",
-                    haveSpecialChar ? getSpecialCharacter() : "" };
-            int index = ((int) (Math.random() * 100)) % 3;
-            res = res + arr[index];
+            if (haveNumber)
+                al.add(getNum());
+            if (haveCharacters)
+                al.add(getCharacter());
+            if (haveSpecialChar)
+                al.add(getSpecialCharacter());
+            Collections.shuffle(al);
+            res = res + al.get(0);
         }
         return res;
     }
 
-    public static String getNumber() {
+    public static String getNum() {
         int n = (int) (Math.random() * 10);
         return Integer.toString(n);
     }
@@ -36,7 +45,7 @@ public class PasswordGenerator {
         int passwordLength = 10;
         boolean haveNumber = true;
         boolean haveCharacters = true;
-        boolean haveSpecialChar = true;
+        boolean haveSpecialChar = false;
 
         String s = password(passwordLength, haveNumber, haveCharacters,
                 haveSpecialChar);
