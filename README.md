@@ -1,6 +1,6 @@
-# Otp Generator App
+# OTP and Password Generator App
 
-This project creates variable size OTP messages
+This project creates variable size OTP messages and Password
 
 ## Getting Started
 
